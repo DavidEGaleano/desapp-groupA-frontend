@@ -50,7 +50,7 @@ module.exports = function (grunt) {
     },
     heroku: {
       options: {
-        remote: 'git@heroku.com:DavidEGaleano/desapp-groupA-frontend.git',
+        remote: 'git@heroku.com:murmuring-crag-835448.git',
         branch: 'master',
         tag: pkg.version
       }
