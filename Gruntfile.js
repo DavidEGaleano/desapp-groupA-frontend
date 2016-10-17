@@ -36,10 +36,12 @@ module.exports = function (grunt) {
 	buildcontrol: {
     options: {
       dir: 'dist',
+	  login: 'https://DavidEGaleano@github.com/DavidEGaleano/desapp-groupA-frontend.git',
       commit: true,
       push: true,
       message: 'Built %sourceName% from commit %sourceCommit% on branch %sourceBranch%'
     },
+	
     pages: {
       options: {
         remote: 'git@github.com:DavidEGaleano/desapp-groupA-frontend.git',
