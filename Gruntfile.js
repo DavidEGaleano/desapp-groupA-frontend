@@ -50,7 +50,7 @@ module.exports = function (grunt) {
     },
     heroku: {
       options: {
-        remote: 'git@heroku.com:murmuring-crag-835448.git',
+        remote: 'git@heroku.com:salidas.git',
         branch: 'master',
         tag: pkg.version
       }
