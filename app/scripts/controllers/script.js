@@ -8,7 +8,15 @@ todos.controller('TodoController', function($scope,$http) {
 	  $scope.currentPage = 4;
 	  $scope.itemsPerPage = $scope.viewby;
 	  $scope.maxSize = 5; //Number of pager buttons to show
-
+	  $scope.getEvents = function(){
+		  $http.get('https://salidasbackend.herokuapp.com/rest/event/events')
+		  .success(function(dat){
+			 $scope.data = dat; 
+		  }).error(function(err){
+			 console.log(err);
+		  });
+	  }
+	  
 	  $scope.setPage = function (pageNo) {
 	    $scope.currentPage = pageNo;
 	  };
