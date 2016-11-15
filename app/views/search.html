@@ -1,20 +1,21 @@
 <div ng-controller="TodoController">
 	<div class="btn-group btn-group-justified">
-		<a href="#" class="btn btn-primary">busqueda 1</a> <a href="#"
-			class="btn btn-success">busqueda 2</a> <a href="#"
-			class="btn btn-warning">busqueda 3</a> <a href="#"
-			class="btn btn-danger">busqueda 4</a>
+		<a href="#" class="btn btn-primary">busqueda 1</a> 
+		<a href="#" class="btn btn-success">busqueda 2</a> 
+		<a href="#"	class="btn btn-warning">busqueda 3</a> 
+		<a href="#"	class="btn btn-danger">busqueda 4</a>
 	</div>
 
-	<div>
-		<h1>Todos</h1>
-		<h4>{{todos.length}} remain</h4>
-		<ul>
-			<li ng-repeat="todo in filteredTodos">{{todo.text}}</li>
-		</ul>
-		 <div data-pagination="" data-num-pages="numPages()" 
-      data-current-page="currentPage" data-max-size="maxSize"  
-      data-boundary-links="true"></div>
-	</div>
+	<table class="table">
+      <tr ng-repeat="row in data.slice(((currentPage-1)*itemsPerPage), ((currentPage)*itemsPerPage))">
+        <td>{{row.name}}</td>
+        <td>{{row.id}}</td>
+      </tr>
+    </table>
+    
+    View <select ng-model="viewby" ng-change="setItemsPerPage(viewby)"><option>3</option><option>5</option><option>10</option><option>20</option><option>30</option><option>40</option><option>50</option></select> records at a time.
+    
+    <pagination total-items="totalItems" ng-model="currentPage" max-size="maxSize" class="pagination-sm" boundary-links="true" num-pages="numPages" items-per-page="itemsPerPage"></pagination>
+    <pre>Page: {{currentPage}} / {{numPages}}</pre>
 
 </div>
