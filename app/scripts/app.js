@@ -16,9 +16,13 @@ angular
     'ngRoute',
     'ngSanitize',
     'ngTouch',
-    'ui.bootstrap'
+    'ui.bootstrap',
+    'pascalprecht.translate',
+    'tmh.dynamicLocale',
+    'angular.filter'
   ])
-  .config(function ($routeProvider) {
+  .config(function ($routeProvider,$translateProvider,tmhDynamicLocaleProvider) {
+//	  ROUTES CONF
     $routeProvider
       .when('/', {
         templateUrl: 'views/login.html',
@@ -38,4 +42,13 @@ angular
       .otherwise({
         redirectTo: '/'
       });
+//    TRANSLATE CONF
+    $translateProvider
+ 	.useStaticFilesLoader({
+      prefix: '/i18n/',
+      suffix: '.json'
+    })
+    .useSanitizeValueStrategy('sanitize')
+    .preferredLanguage('es');
+   tmhDynamicLocaleProvider.localeLocationPattern('/i18n/angular-locale_{{locale}}.js');
   });
