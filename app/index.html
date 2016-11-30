@@ -1,10 +1,11 @@
 <!doctype html>
-<html>
+<html ng-app="salidasApp" ng-cloak>
   <head>
     <meta charset="utf-8">
     <title translate="title"></title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
+    <meta name="google-signin-client_id" content="967936984828-kv6v4ma44t90qk4no8i63vmpfafh5ik2.apps.googleusercontent.com">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <!-- build:css(.) styles/vendor.css -->
     <!-- bower:css -->
@@ -15,7 +16,7 @@
     <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild -->
   </head>
-  <body ng-app="salidasApp" ng-cloak>
+  <body >
     <!--[if lte IE 8]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
@@ -31,8 +32,10 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
-            </button>
+              <span class="icon-bar"></span>
+            </button>            
 			<a href="#/" class="navbar-brand" translate="title"></a>
+					
           </div>
 
           <div class="collapse navbar-collapse" id="js-navbar-collapse">
@@ -40,9 +43,33 @@
             <ul class="nav navbar-nav">
               <li><a href="#/search" translate="search"></a></li>
               <li><a ng-href="#/login" translate="login"></a></li>
-              <li><a ng-href="#/profile" translate="profile"></a></li>
+              <li><a ng-href="#/profile" translate="profile"></a></li>                            
             </ul>
+			
+            <ul class="nav navbar-nav navbar-right">
+      			
+      			<ul ng-controller="LocaleCtrl" class="nav navbar-nav">
+      			<li class="dropdown">
+        			<a class="dropdown-toggle" data-toggle="dropdown" translate="language">Idioma <span class="caret"></span></a>
+        			<ul class="dropdown-menu">
+						<li>
+ 							<a ng-click="changeLanguage('es')" >
+ 								<span>ES</span>
+ 							</a>
+ 						</li>
+         				<li>
+     						<a ng-click="changeLanguage('en')" >
+     							<span>EN</span>
+     						</a>
+     					</li>
+        			</ul>
+      			</li>
+    		 	</ul>
+    		 	<li><div id="my-signin2"></div></li>	     
+    		</ul>
+    		
           </div>
+          
         </div>
       </div>
     </div>
@@ -50,32 +77,44 @@
     <div class="container">
     <div ng-view=""></div>
     </div>
-	<div ng-controller="LocaleCtrl" class="fixed-action-btn horizontal txt-shadow">
-		<a class="btn-floating btn-large red opacity-80" title="{{'language' | translate}}"> 
-			<i class="material-icons">language</i> 
-		</a>
- 		<ul class="txt-shadow opacity-80">
-     		<li>
- 				<a ng-click="changeLanguage('es')" class="btn-floating yellow darken-1">
- 					<span style="margin-right:10px">ES</span>
- 				</a>
- 			</li>
-     		<li>
-     			<a ng-click="changeLanguage('en')" class="btn-floating orange darken-1">
-     				<span style="margin-right:10px">EN</span>
-     			</a>
-     		</li>
-   		</ul>
- 	</div>
-    <div class="navbar navbar-default navbar-fixed-bottom">
+    
+
+   
+	<!-- Fotter -->
+    <div class="navbar navbar-default navbar-fixed-bottom navbar-center">
       <div class="container-fluid text-center">
-      	<div class="row navbar-text">
-	        <span class="col-lg-6" translate="signature" style="background-color:pink;"></span>
-    	    <span class="col-lg-6"translate="footer" style="background-color:pink;"></span>
-      	</div>
+
+      	    <footer class="footer">
+      			<div class="container">
+        			<span class="col-lg-6" translate="signature""></span>
+        			<span class="col-lg-6" translate="footer""></span>
+      			</div>
+    		</footer>
       </div>
     </div>
+	
+	<!-- signInScript -->
+  <script>
+    function onSuccess(googleUser) {
+      console.log('Logged in as: ' + googleUser.getBasicProfile().getName());
+    }
+    function onFailure(error) {
+      console.log(error);
+    }
+    function renderButton() {
+      gapi.signin2.render('my-signin2', {
+        'scope': 'profile email',
+        'width': 150,
+        'height': 40,
+        'longtitle': false,
+        'theme': 'dark',
+        'onsuccess': onSuccess,
+        'onfailure': onFailure
+      });
+    }
+  </script>
 
+  <script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
 
 
     <!-- build:js(.) scripts/vendor.js -->
@@ -99,6 +138,7 @@
 
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
         <script src="scripts/app.js"></script>
+        <script src="https://apis.google.com/js/platform.js" async defer></script>
         <script src="scripts/controllers/main.js"></script>
         <script src="scripts/controllers/about.js"></script>
         <script src="scripts/controllers/script.js"></script>
