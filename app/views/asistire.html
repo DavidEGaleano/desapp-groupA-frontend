@@ -1,0 +1,23 @@
+
+<div>
+<div class="modal-header">
+  <h2 class="modal-title" align="center">Confirmar</h2>
+</div>
+
+	<div class="modal-body"></div>
+		
+		<h2 align="center">Datos del evento </h2>
+		<br>
+		<h4 align="center">Nombre: {{event.name}}</h4>
+		<h4 align="center">Direccion: {{event.address}}</h4>
+		<h4 align="center">Costo: {{event.amount}}</h4>
+		<h4 align="center">Momento del Dia: {{event.dayMoment}}</h4>
+		<h4 align="center">Capacidad: {{event.limitOfPersons}}</h4>
+		<br>
+	<div class="modal-footer" > 
+		<div class="row" align="center">
+    		<button class="btn btn-primary" ng-click="illgo()"  translate="ill_go"></button>
+    		<button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+		</div>
+	</div>
+</div>

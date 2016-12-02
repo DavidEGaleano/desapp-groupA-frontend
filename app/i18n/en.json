@@ -6,10 +6,22 @@
   "logout": "Logout",
   "google_sign_in": "Sign in with Google",
   "language": "Language",
+  "options": "Options",
+  "ill_go": "I'll Go",
+  "see_map":"See Map",
+  "details":"Details",
   "search_strategies": {
     "inexpensive": {
       "title": "Cheaper",
       "description": "Find free or cheap options to go out and have fun, even though you don´t have much money."
+    },
+    "all_events": {
+      "title": "All Events",
+      "description": "Here you can see all available events"
+    },
+    "withLimitOfPersons":{
+        "title": "With Limit Of Persons",
+      	"description": "Do you need to ensure the number of seats for your friends? Click here to find events with the same or greater quantity you are looking for. "
     },
     "friends": {
       "title": "With Friends",

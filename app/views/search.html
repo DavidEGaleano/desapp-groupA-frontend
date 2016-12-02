@@ -1,21 +1,38 @@
 <div ng-controller="TodoController">
 	<div class="btn-group btn-group-justified">
-		<a href="#" class="btn btn-primary">busqueda 1</a> 
-		<a href="#" class="btn btn-success">busqueda 2</a> 
-		<a href="#"	class="btn btn-warning">busqueda 3</a> 
-		<a ng-click="getEvents()"class="btn btn-danger">busqueda 4</a>
+		<a ng-click="getEconomic()" class="btn btn-primary" translate="search_strategies.inexpensive.title"></a> 
+		<a ng-click="getWithLimitOfPersons()" class="btn btn-success" translate="search_strategies.withLimitOfPersons.title"></a> 
+		<a ng-click="getEvents()" class="btn btn-danger"  translate="search_strategies.all_events.title"></a>
 	</div>
 
-	<table class="table">
+	<table ng-hide="showTable" class="table" ng-hide="false">
+	  <tr><th>Nombre</th><th>Costo</th><th>Capacity</th><th>Direccion</th><th align="center" translate="options"></th></tr>
       <tr ng-repeat="row in data.slice(((currentPage-1)*itemsPerPage), ((currentPage)*itemsPerPage))">
         <td>{{row.name}}</td>
-        <td>{{row.id}}</td>
+        <td>{{row.amount}}</td>
+        <td>{{row.limitOfPersons}}</td>
+        <td>{{row.address}}</td>
+        <td>          		
+			<div class="btn-group">
+  				<button type="button" class="btn btn-default dropdown-toggle"
+          					data-toggle="dropdown" translate="options">
+   				<span class="caret"></span>
+  				</button>
+ 
+  				<ul class="dropdown-menu" role="menu">
+    				<li><a ng-click="getEventForModal('asistire.html',row.id)"  translate="ill_go"></a></li>
+    				<li><a ng-click="getEventForModal('popupdetails.html', row.id)" translate="details"></a></li>
+    				<li><a ng-click="getEventForModal('map.html', row.id)" translate="see_map"></a></li>
+  				</ul>
+			</div> 
+        </td>
+        
       </tr>
     </table>
-    
-    View <select ng-model="viewby" ng-change="setItemsPerPage(viewby)"><option>3</option><option>5</option><option>10</option><option>20</option><option>30</option><option>40</option><option>50</option></select> records at a time.
-    
-    <pagination total-items="totalItems" ng-model="currentPage" max-size="maxSize" class="pagination-sm" boundary-links="true" num-pages="numPages" items-per-page="itemsPerPage"></pagination>
-    <pre>Page: {{currentPage}} / {{numPages}}</pre>
-
+    <h1 align="center" ng-hide="! showTable">Por favor Seleccione un tipo de busqueda</h1>
+    <div ng-model="showTable" ng-hide="showTable">View <select ng-hide="true" ng-model="viewby" ng-change="setItemsPerPage(viewby)"><option>3</option><option>5</option><option>10</option><option>20</option><option>30</option><option>40</option><option>50</option></select> records at a time.
+    </div>
+    <pagination ng-hide="showTable" total-items="totalItems" ng-model="currentPage" max-size="maxSize" class="pagination-sm" boundary-links="true" num-pages="numPages" items-per-page="itemsPerPage"></pagination>
+    <pre ng-hide="showTable">Page: {{currentPage}} / {{numPages}}</pre>
+	
 </div>

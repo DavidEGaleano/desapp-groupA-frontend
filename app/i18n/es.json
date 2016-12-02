@@ -6,10 +6,22 @@
   "logout": "Salir",
   "google_sign_in": "Acceder con Google",
   "language": "Idioma",
+  "options": "Opciones",
+  "ill_go": "Asisitire",
+  "see_map":"Ver Mapa",
+  "details":"Detalles",
   "search_strategies": {
     "inexpensive": {
       "title": "Gasolera",
       "description": "Encontrá opciones gratuitas o baratas para salir y pasarla bien aún cuando estés corto de plata."
+    },
+    "all_events": {
+      "title": "Todos Los Eventos",
+      "description": "Aqui podras ver todos los eventos disponibles"
+    },
+    "withLimitOfPersons":{
+        "title": "Por Cantidad de Personas",
+      	"description": "Necesitas asegurar que la cantidad de cupos para tus amigos? has click aqui para encontrar los eventos con la cantidad igual o mayor al que buscas."
     },
     "friends": {
       "title": "Con Amigos",

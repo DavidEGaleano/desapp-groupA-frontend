@@ -13,7 +13,7 @@ angular.module('salidasApp')
 		   var title = 'default';
 		   return {
 		     title: function() { return title; },
-		     setTitle: function(newTitle) { title = newTitle }
+		     setTitle: function(newTitle) { title = newTitle; }
 		   };
   };
     this.awesomeThings = [
