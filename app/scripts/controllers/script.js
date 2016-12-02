@@ -46,6 +46,17 @@ todos.controller('TodoController', function($scope,$http,$modal) {
 		  });
 	  };
 	  
+
+	  
+	  $scope.isRegistered = function(eventid){
+		  $http.get(local + '/event/validateAssit/'+id+'/'+eventid)
+		  .success(function(dat){			 
+			 return $scope.data.value;
+		  }).error(function(err){
+			 console.log(err);
+		  });
+	  };
+	  
 	  $scope.getWithLimitOfPersons = function(){
 		  $http.get(local + '/search/withLimitOfPersons/'+id+'/'+limit)
 		  .success(function(dat){
@@ -131,9 +142,18 @@ todos.controller('TodoController', function($scope,$http,$modal) {
             $modalInstance.close();
           };
           
-          $scope.illgo = function () {
-              $modalInstance.close();
-            };
+    	  $scope.illgo = function(){
+    		  $http.get(local + '/event/setAssisAnEvent/'+id+'/'+$scope.event.id)
+    		  .success(function(dat){			 
+    			 console.log("illgo");
+    			 $modalInstance.close();
+    		  }).error(function(err){
+    			  console.log("illgoERROR");
+    			 console.log(err);
+    			 $modalInstance.close();
+    		  });
+    	  };
+          
 
           $scope.cancel = function () {
             $modalInstance.dismiss('cancel');

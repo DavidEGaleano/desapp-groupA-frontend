@@ -10,6 +10,7 @@
   "ill_go": "I'll Go",
   "see_map":"See Map",
   "details":"Details",
+  "ill_cancel":"i'll not Go",
   "search_strategies": {
     "inexpensive": {
       "title": "Cheaper",

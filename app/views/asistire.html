@@ -14,14 +14,12 @@
 		<h4 align="center">Momento del Dia: {{event.dayMoment}}</h4>
 		<h4 align="center">Capacidad: {{event.limitOfPersons}}</h4>
 		<br>
-	</div>
-	<div>
-        <leaflet width="100%" height="400px"></leaflet>
-    </div>  
+	</div> 
 
 	<div class="modal-footer" > 
 		<div class="row" align="center">
-    		<button class="btn btn-primary" ng-click="illgo()"  translate="ill_go"></button>
+    		<button ng-show="!isRegistered()" class="btn btn-primary" ng-click="illgo()"  translate="ill_go"></button>
+    		<button ng-show="isRegistered()" class="btn btn-primary" ng-click="illgo()"  translate="ill_cancel"></button>
     		<button class="btn btn-warning" ng-click="cancel()">Cancel</button>
 		</div>
 	</div>
