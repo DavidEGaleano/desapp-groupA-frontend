@@ -10,6 +10,8 @@
   "ill_go": "I'll Go",
   "see_map":"See Map",
   "details":"Details",
+  "addedsuccess": "You have added to that Event ",
+  "addedFail":" An error occured, you can't be added to that Event ",
   "ill_cancel":"i'll not Go",
   "search_strategies": {
     "inexpensive": {

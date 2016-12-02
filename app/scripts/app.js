@@ -20,7 +20,8 @@ angular
     'pascalprecht.translate',
     'tmh.dynamicLocale',
     'angular.filter',
-    'leaflet-directive'
+    'leaflet-directive',
+    'ngToast'
   ])
   .config(function ($routeProvider,$translateProvider,tmhDynamicLocaleProvider) {
 //	  ROUTES CONF

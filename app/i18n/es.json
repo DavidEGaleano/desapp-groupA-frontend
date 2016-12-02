@@ -10,6 +10,8 @@
   "ill_go": "Asisitire",
   "see_map":"Ver Mapa",
   "details":"Detalles",
+  "addedsuccess": "Has sido agregado al Evento",
+  "addedFail":" Ocurrio un error, no se logro agregarte al Evento",
    "ill_cancel":"No Asisitire",
   "search_strategies": {
     "inexpensive": {

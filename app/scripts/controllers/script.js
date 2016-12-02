@@ -1,7 +1,7 @@
 'use strict';
 var todos = angular.module('salidasApp');
 
-todos.controller('TodoController', function($scope,$http,$modal) {
+todos.controller('TodoController', function($scope,$http,$modal,ngToast) {
 	  $scope.data = [];
 	  $scope.selected = null;
 	  $scope.showTable=true;
@@ -128,7 +128,7 @@ todos.controller('TodoController', function($scope,$http,$modal) {
          });
      }; 
      
-     var ModalInstanceCtrl = function($scope, $modalInstance, $modal, event) {
+     var ModalInstanceCtrl = function($scope, $modalInstance, $modal, event,ngToast) {
 
          $scope.event = event.event; 
          var list = $scope.event.idPeopleWhoAttended;
@@ -141,9 +141,7 @@ todos.controller('TodoController', function($scope,$http,$modal) {
         		    	isRegistered = (element == id);
         		    } 
         		});
-         } 
-         
-         //isRegistred = registred();
+         }          
          
           $scope.ok = function () {
             $modalInstance.close();
@@ -152,10 +150,16 @@ todos.controller('TodoController', function($scope,$http,$modal) {
     	  $scope.illgo = function(){
     		  $http.get(local + '/event/setAssisAnEvent/'+id+'/'+$scope.event.id)
     		  .success(function(dat){			 
-    			 console.log("illgo");
+    			  ngToast.create({
+    				  className: 'warning',
+    				  content: '<aclass="" translate="options"> Added to '+ $scope.event.name +' success!</a>'
+    				});
     			 $modalInstance.close();
     		  }).error(function(err){
-    			  console.log("illgoERROR");
+    			  ngToast.create({
+    				  className: 'warning',
+    				  content: '<aclass="" translate="options"> An error ocurred! cant be added to the event</a>'
+    				});
     			 console.log(err);
     			 $modalInstance.close();
     		  });
@@ -164,10 +168,16 @@ todos.controller('TodoController', function($scope,$http,$modal) {
     	  $scope.illnotgo = function(){
     		  $http.get(local + '/event/removeAssisAnEvent/'+id+'/'+$scope.event.id)
     		  .success(function(dat){			 
-    			 console.log("illnotgo");
+    			  ngToast.create({
+    				  className: 'warning',
+    				  content: '<aclass="" translate="options">Removed from  '+ $scope.event.name +'  success!</a>'
+    				});
     			 $modalInstance.close();
     		  }).error(function(err){
-    			  console.log("illnotgoERROR");
+    			  ngToast.create({
+    				  className: 'warning',
+    				  content: '<aclass="" translate="options"> An error ocurred! cant be removed to the event</a>'
+    				});
     			 console.log(err);
     			 $modalInstance.close();
     		  });
