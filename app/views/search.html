@@ -6,7 +6,7 @@
 	</div>
 
 	<table ng-hide="showTable" class="table" ng-hide="false">
-	  <tr><th>Nombre</th><th>Costo</th><th>Capacity</th><th>Direccion</th><th align="center" translate="options"></th></tr>
+	  <tr><th>Nombre</th><th>Costo</th><th>Capacidad</th><th>Direccion</th><th align="center" translate="options"></th></tr>
       <tr ng-repeat="row in data.slice(((currentPage-1)*itemsPerPage), ((currentPage)*itemsPerPage))">
         <td>{{row.name}}</td>
         <td>{{row.amount}}</td>
@@ -30,7 +30,7 @@
       </tr>
     </table>
     <h1 align="center" ng-hide="! showTable">Por favor Seleccione un tipo de busqueda</h1>
-    <div ng-model="showTable" ng-hide="showTable">View <select ng-hide="true" ng-model="viewby" ng-change="setItemsPerPage(viewby)"><option>3</option><option>5</option><option>10</option><option>20</option><option>30</option><option>40</option><option>50</option></select> records at a time.
+    <div ng-model="showTable" ng-hide="showTable">View <select ng-hide="showTable" ng-model="viewby" ng-change="setItemsPerPage(viewby)"><option>3</option><option>5</option><option>10</option><option>20</option><option>30</option><option>40</option><option>50</option></select> records at a time.
     </div>
     <pagination ng-hide="showTable" total-items="totalItems" ng-model="currentPage" max-size="maxSize" class="pagination-sm" boundary-links="true" num-pages="numPages" items-per-page="itemsPerPage"></pagination>
     <pre ng-hide="showTable">Page: {{currentPage}} / {{numPages}}</pre>

@@ -40,5 +40,8 @@
   },
   "scripts": {
     "test": "karma start test\\karma.conf.js"
+  },
+  "dependencies": {
+    "leaflet-routing-machine": "^3.2.4"
   }
 }

@@ -19,7 +19,8 @@ angular
     'ui.bootstrap',
     'pascalprecht.translate',
     'tmh.dynamicLocale',
-    'angular.filter'
+    'angular.filter',
+    'leaflet-directive'
   ])
   .config(function ($routeProvider,$translateProvider,tmhDynamicLocaleProvider) {
 //	  ROUTES CONF
@@ -39,6 +40,10 @@ angular
         controller: 'AboutCtrl',
         controllerAs: 'about'
       })
+      .when('/map',{
+            templateUrl: 'views/map.html',
+            controller: 'MapController'
+        })
       .otherwise({
         redirectTo: '/'
       });

@@ -81,7 +81,8 @@ todos.controller('TodoController', function($scope,$http,$modal) {
 	 * ----------------------- Modal controls ---------------------------- 
 	 * ------------------------------------------------------------------- 
 	 */
-	 $scope.name = 'theNameHasBeenPassed';	
+	 $scope.name = 'theNameHasBeenPassed';
+	 
  	 $scope.getEventForModal = function getevent (htmlname,id){
  		  $http.get(local + '/event/getEvent/'+id)
  		  .success(function(dat){
