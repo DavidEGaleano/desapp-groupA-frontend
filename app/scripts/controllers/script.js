@@ -48,14 +48,7 @@ todos.controller('TodoController', function($scope,$http,$modal) {
 	  
 
 	  
-	  $scope.isRegistered = function(eventid){
-		  $http.get(local + '/event/validateAssit/'+id+'/'+eventid)
-		  .success(function(dat){			 
-			 return $scope.data.value;
-		  }).error(function(err){
-			 console.log(err);
-		  });
-	  };
+
 	  
 	  $scope.getWithLimitOfPersons = function(){
 		  $http.get(local + '/search/withLimitOfPersons/'+id+'/'+limit)
@@ -137,7 +130,21 @@ todos.controller('TodoController', function($scope,$http,$modal) {
      
      var ModalInstanceCtrl = function($scope, $modalInstance, $modal, event) {
 
-         $scope.event = event.event;
+         $scope.event = event.event; 
+         var list = $scope.event.idPeopleWhoAttended;
+         var isRegistered = false;
+         registred();
+         console.log(isRegistered);
+         function registred(){
+        	 angular.forEach(list, function (element) {
+        		    if (!isRegistered) {
+        		    	isRegistered = (element == id);
+        		    } 
+        		});
+         } 
+         
+         //isRegistred = registred();
+         
           $scope.ok = function () {
             $modalInstance.close();
           };
@@ -153,7 +160,22 @@ todos.controller('TodoController', function($scope,$http,$modal) {
     			 $modalInstance.close();
     		  });
     	  };
+    	  
+    	  $scope.illnotgo = function(){
+    		  $http.get(local + '/event/removeAssisAnEvent/'+id+'/'+$scope.event.id)
+    		  .success(function(dat){			 
+    			 console.log("illnotgo");
+    			 $modalInstance.close();
+    		  }).error(function(err){
+    			  console.log("illnotgoERROR");
+    			 console.log(err);
+    			 $modalInstance.close();
+    		  });
+    	  };
           
+    	  $scope.isRegistered = function(){
+    		 return isRegistered;
+    	  };
 
           $scope.cancel = function () {
             $modalInstance.dismiss('cancel');
