@@ -1,7 +1,7 @@
 'use strict';
 var todos = angular.module('salidasApp');
 
-todos.controller('TodoController', function($scope,$http,$modal,ngToast) {
+todos.controller('TodoController', function($scope,$http,$modal,ngToast,$rootScope) {
 	  $scope.data = [];
 	  $scope.selected = null;
 	  $scope.showTable=true;
@@ -10,13 +10,30 @@ todos.controller('TodoController', function($scope,$http,$modal,ngToast) {
 	  $scope.currentPage = 4;
 	  $scope.itemsPerPage = $scope.viewby;
 	  $scope.maxSize = 5; //Number of pager buttons to show
+	  $scope.iduser = 1;
 	  var limit = "300";
-	  var id = "1";
 	  var local = 'http://localhost:8080/desapp-groupA-backend/rest';
 	  var heroku = 'https://salidasbackend.herokuapp.com/rest';
 	  
+	  $scope.setId = function(){
+		  var profile = $rootScope.profile;
+		  console.log(profile);
+		  var email = profile.getEmail();
+		  console.log(email);
+		  $http.get(local + '/user/getUserWithEmail/'+email)
+				  .success(function(dat){
+					  console.log("setId");
+					  console.log(dat.id);
+					  $scope.iduser = dat.id;
+					  console.log($scope.iduser);
+				  }).error(function(err){
+					 console.log(err);
+				  });
+		  
+	  }
+	  
 	  $scope.getEvent = function(id){
-		  $http.get(local + '/event/getEvent/'+id)
+		  $http.get(local + '/event/getEvent/'+ $scope.iduser)
 		  .success(function(dat){
 			 $scope.selected = dat;
 		  }).error(function(err){
@@ -36,7 +53,7 @@ todos.controller('TodoController', function($scope,$http,$modal,ngToast) {
 	  };
 	  
 	  $scope.getEconomic = function(){
-		  $http.get(local + '/search/economic/' + id)
+		  $http.get(local + '/search/economic/' +  $scope.iduser)
 		  .success(function(dat){
 			  show();
 			 $scope.data = dat;
@@ -51,7 +68,7 @@ todos.controller('TodoController', function($scope,$http,$modal,ngToast) {
 
 	  
 	  $scope.getWithLimitOfPersons = function(){
-		  $http.get(local + '/search/withLimitOfPersons/'+id+'/'+limit)
+		  $http.get(local + '/search/withLimitOfPersons/'+ $scope.iduser +'/'+limit)
 		  .success(function(dat){
 			  show();
 			 $scope.data = dat;
@@ -114,7 +131,8 @@ todos.controller('TodoController', function($scope,$http,$modal,ngToast) {
 
        $scope.opts.resolve.event = function() {
            return angular.copy(
-                               {event: $scope.selected}
+                               {event: $scope.selected,
+                            	iduser: $scope.iduser}
                          ); // pass name to resolve storage
        }
 
@@ -131,6 +149,7 @@ todos.controller('TodoController', function($scope,$http,$modal,ngToast) {
      var ModalInstanceCtrl = function($scope, $modalInstance, $modal, event,ngToast) {
 
          $scope.event = event.event; 
+         $scope.iduser = event.iduser; 
          var list = $scope.event.idPeopleWhoAttended;
          var isRegistered = false;
          registred();
@@ -138,7 +157,7 @@ todos.controller('TodoController', function($scope,$http,$modal,ngToast) {
          function registred(){
         	 angular.forEach(list, function (element) {
         		    if (!isRegistered) {
-        		    	isRegistered = (element == id);
+        		    	isRegistered = (element == $scope.iduser);
         		    } 
         		});
          }          
@@ -148,7 +167,7 @@ todos.controller('TodoController', function($scope,$http,$modal,ngToast) {
           };
           
     	  $scope.illgo = function(){
-    		  $http.get(local + '/event/setAssisAnEvent/'+id+'/'+$scope.event.id)
+    		  $http.get(local + '/event/setAssisAnEvent/'+$scope.iduser+'/'+$scope.event.id)
     		  .success(function(dat){			 
     			  ngToast.create({
     				  className: 'warning',
@@ -166,7 +185,7 @@ todos.controller('TodoController', function($scope,$http,$modal,ngToast) {
     	  };
     	  
     	  $scope.illnotgo = function(){
-    		  $http.get(local + '/event/removeAssisAnEvent/'+id+'/'+$scope.event.id)
+    		  $http.get(local + '/event/removeAssisAnEvent/'+$scope.iduser+'/'+$scope.event.id)
     		  .success(function(dat){			 
     			  ngToast.create({
     				  className: 'warning',

@@ -42,6 +42,8 @@
     "test": "karma start test\\karma.conf.js"
   },
   "dependencies": {
+    "angular-jwt": "^0.1.8",
+    "angular-lock": "^1.0.5",
     "leaflet-routing-machine": "^3.2.4"
   }
 }
