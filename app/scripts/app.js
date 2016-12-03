@@ -27,23 +27,19 @@ angular
 //	  ROUTES CONF
     $routeProvider
       .when('/', {
-        templateUrl: 'views/login.html',
-        controller: 'MainCtrl',
-        controllerAs: 'main'
+        templateUrl: 'views/home.html',
       })
       .when('/search', {
         templateUrl: 'views/search.html',
-        controller: 'TodoController',
-        controllerAs: 'todo'
       })
       .when('/profile', {
         templateUrl: 'views/profile.html',
-        controller: 'AboutCtrl',
-        controllerAs: 'about'
+      })
+       .when('/home', {
+        templateUrl: 'views/home.html'
       })
       .when('/map',{
-            templateUrl: 'views/map.html',
-            controller: 'MapController'
+            templateUrl: 'views/map.html'
         })
       .otherwise({
         redirectTo: '/'

@@ -5,7 +5,7 @@
 		<a ng-click="getEvents()" class="btn btn-danger"  translate="search_strategies.all_events.title"></a>
 	</div>
 
-	<table ng-hide="showTable" class="table" ng-hide="false">
+	<table ng-hide="showTable" class="table">
 	  <tr><th>Nombre</th><th>Costo</th><th>Capacidad</th><th>Direccion</th><th align="center" translate="options"></th></tr>
       <tr ng-repeat="row in data.slice(((currentPage-1)*itemsPerPage), ((currentPage)*itemsPerPage))">
         <td>{{row.name}}</td>

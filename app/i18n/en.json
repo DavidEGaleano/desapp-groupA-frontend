@@ -2,6 +2,7 @@
   "title": "Where we go?",
   "profile": "Profile",
   "friends": "Friends",
+  "username": "User Name",
   "main": "Home",
   "logout": "Logout",
   "google_sign_in": "Sign in with Google",
@@ -13,6 +14,12 @@
   "addedsuccess": "You have added to that Event ",
   "addedFail":" An error occured, you can't be added to that Event ",
   "ill_cancel":"i'll not Go",
+  "slogan":"",
+  "typeoffood":"Food Preferencie",
+  "typeofmusic":"Music Preferencie",
+  "typeoffilm":"Film Preferencie",
+  "where_we_go":"WHERE WE GO?",
+  "we_go" : "GO",
   "search_strategies": {
     "inexpensive": {
       "title": "Cheaper",

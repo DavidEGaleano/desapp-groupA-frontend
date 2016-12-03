@@ -17,14 +17,13 @@ todos.controller('TodoController', function($scope,$http,$modal,ngToast,$rootSco
 	  
 	  $scope.setId = function(){
 		  var profile = $rootScope.profile;
-		  console.log(profile);
 		  var email = profile.getEmail();
-		  console.log(email);
 		  $http.get(local + '/user/getUserWithEmail/'+email)
 				  .success(function(dat){
 					  console.log("setId");
 					  console.log(dat.id);
 					  $scope.iduser = dat.id;
+					  $rootScope.iduser = dat.id;
 					  console.log($scope.iduser);
 				  }).error(function(err){
 					 console.log(err);
@@ -105,6 +104,7 @@ todos.controller('TodoController', function($scope,$http,$modal,ngToast,$rootSco
 	 $scope.name = 'theNameHasBeenPassed';
 	 
  	 $scope.getEventForModal = function getevent (htmlname,id){
+ 		 console.log("modal exec");
  		  $http.get(local + '/event/getEvent/'+id)
  		  .success(function(dat){
  			 $scope.selected = dat;

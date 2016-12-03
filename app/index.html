@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild -->
   </head>
-  <body >
+  <body>
     <!--[if lte IE 8]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
@@ -43,9 +43,11 @@
           <div ng-controller="TodoController" class="collapse navbar-collapse" id="js-navbar-collapse">
 
             <ul class="nav navbar-nav">
+              <li><a ng-href="#/home" > Home </a></li> 
               <li><a href="#/search" ng-click="setId()" translate="search"></a></li>
               <li><a ng-href="#/login" translate="login"></a></li>
-              <li><a ng-href="#/profile" translate="profile"></a></li>                           
+              <li ng-controller="ProfileController"><a ng-href="#/profile" ng-click="getUser()" translate="profile"></a></li>
+                                        
             </ul>
 			
             <ul class="nav navbar-nav navbar-right">
@@ -69,8 +71,9 @@
     		 	</ul>
     		 	<li>
     		 	<div ng-controller="GoogleCtrl">
-    		 		<div class="g-signin2" data-onsuccess="onSignIn">
+    		 		<div ng-hide="haslogged" class="g-signin2" data-onsuccess="onSignIn">
     		 	</div>
+    		 	    <button ng-hide="!haslogged" type="button" class="btn btn-default dropdown-toggle" onclick="signOut()">Sign out</button>
     		 	</div></li>	     
     		</ul>
     		
@@ -124,9 +127,6 @@
     <script src="bower_components/angular-filter/dist/angular-filter.js"></script>
     <script src="bower_components/leaflet/dist/leaflet-src.js"></script>
     <script src="bower_components/angular-leaflet-directive/dist/angular-leaflet-directive.js"></script>
-    <script src="bower_components/angular-animate/angular-animate.min.js"></script>
-	<script src="bower_components/angular-sanitize/angular-sanitize.min.js"></script>
-	<script src="bower_components/ngToast/ngToast.min.js"></script>
     <script src="bower_components/ngToast/dist/ngToast.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
@@ -135,6 +135,7 @@
         <script src="scripts/app.js"></script>
         <script src="https://apis.google.com/js/platform.js" async defer></script>
         <script src="scripts/controllers/main.js"></script>
+        <script src="scripts/controllers/profileController.js"></script>
         <script src="scripts/controllers/about.js"></script>
         <script src="scripts/controllers/script.js"></script>
         <script src="scripts/controllers/map.js"></script>
