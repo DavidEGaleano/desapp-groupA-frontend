@@ -1,12 +1,13 @@
 <div ng-controller="TodoController">
+	<h1 align="center" ng-hide="! showTable" translate="select_search_mode">Por favor Seleccione un tipo de busqueda</h1>
 	<div class="btn-group btn-group-justified">
 		<a ng-click="getEconomic()" class="btn btn-primary" translate="search_strategies.inexpensive.title"></a> 
 		<a ng-click="getWithLimitOfPersons()" class="btn btn-success" translate="search_strategies.withLimitOfPersons.title"></a> 
 		<a ng-click="getEvents()" class="btn btn-danger"  translate="search_strategies.all_events.title"></a>
 	</div>
-
+	
 	<table ng-hide="showTable" class="table">
-	  <tr><th>Nombre</th><th>Costo</th><th>Capacidad</th><th>Direccion</th><th align="center" translate="options"></th></tr>
+	  <tr><th translate="tname">Nombre</th><th translate="tprice">Costo</th><th translate="tcapacity">Capacidad</th><th translate="taddress">Direccion</th><th align="center" translate="options"></th></tr>
       <tr ng-repeat="row in data.slice(((currentPage-1)*itemsPerPage), ((currentPage)*itemsPerPage))">
         <td>{{row.name}}</td>
         <td>{{row.amount}}</td>
@@ -28,9 +29,8 @@
         </td>
         
       </tr>
-    </table>
-    <h1 align="center" ng-hide="! showTable">Por favor Seleccione un tipo de busqueda</h1>
-    <div ng-model="showTable" ng-hide="showTable">View <select ng-hide="showTable" ng-model="viewby" ng-change="setItemsPerPage(viewby)"><option>3</option><option>5</option><option>10</option><option>20</option><option>30</option><option>40</option><option>50</option></select> records at a time.
+    </table>    
+    <div ng-model="showTable" ng-hide="showTable" > View <select ng-hide="showTable" ng-model="viewby" ng-change="setItemsPerPage(viewby)"><option>3</option><option>5</option><option>10</option><option>20</option><option>30</option><option>40</option><option>50</option></select> records at a time.
     </div>
     <pagination ng-hide="showTable" total-items="totalItems" ng-model="currentPage" max-size="maxSize" class="pagination-sm" boundary-links="true" num-pages="numPages" items-per-page="itemsPerPage"></pagination>
     <pre ng-hide="showTable">Page: {{currentPage}} / {{numPages}}</pre>

@@ -1,5 +1,5 @@
-<div ng-controller="ProfileController" class="container">
-    <h1>Edit Profile</h1>
+<div ng-controller="ProfileController as ctrl" class="container">
+    <h1 align= "center" translate="edit_profile"></h1>
   	<hr>
 	<div class="row">
       <!-- left column -->
@@ -11,47 +11,73 @@
       
       <!-- edit form column -->
       <div class="col-md-9 personal-info">
-        <h3>Personal info</h3>
-        
+        <h3 translate="personal_info" align="center"></h3>
+        <br>
         <form class="form-horizontal" role="form">
           <div class="form-group">
-            <label class="col-lg-3 control-label" translate="username" >User Name</label>
+            <label class="col-lg-3 control-label" translate="username" ></label>
             <div class="col-lg-8">
-              <input class="form-control" type="text" value="{{username}}">
+              <input class="form-control" type="text" ng-model="username" value="username">
             </div>
           </div>
           <div class="form-group">
             <label class="col-lg-3 control-label" translate="email"></label>
             <div class="col-lg-8">
-              <input class="form-control" type="text" value="{{email}}">
+              <input ng-disabled="true" class="form-control" type="text" value="{{email}}">
             </div>
+          </div>
+          <br>
+          <h3 align="center" translate="event_preferences" align="center"></h3>
+          <br>
+          <div class="form-group">
+            <label class="col-lg-3 control-label" translate="limit_amount"></label>
+            <div class="col-lg-8">
+              <input class="form-control" type="text" ng-model="limitamount" >
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <label class="col-lg-3 control-label" translate="limit_people" > </label>
+            <div class="col-lg-8">
+              <input class="form-control" type="text" ng-model="limitpeople" >
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <label class="col-lg-3 control-label" translate="typeofmusic"></label>
+            <div class="col-lg-8">
+            <select  class="form-control" name="repeatSelect" id="repeatSelect" ng-model="music">
+      			<option  ng-repeat="option in musiclist" ng-model="option">{{option}}</option>
+    		</select>
+    		</div>
           </div>
           <div class="form-group">
-            <label class="col-lg-3 control-label" translate="typeofmusic">Type of Music</label>
+            <label class="col-lg-3 control-label" translate="typeoffilm"></label>
             <div class="col-lg-8">
-              <input class="form-control" type="text" value="{{music}}">
-            </div>
+            <select class="form-control" name="repeatSelect" id="repeatSelect" ng-model="film">
+      			<option ng-repeat="option in filmlist" ng-model="option">{{option}}</option>
+    		</select>
+    		</div>
           </div>
           <div class="form-group">
-            <label class="col-lg-3 control-label" translate="typeoffilm">Type Of Film</label>
+            <label class="col-lg-3 control-label" translate="typeoffood"></label>
             <div class="col-lg-8">
-              <input class="form-control" type="text" value="{{film}}">
-            </div>
+    		<select class="form-control"  class="form-control" name="repeatSelect" id="repeatSelect" ng-model="food">
+      			<option ng-repeat="option in foodlist" ng-model="option">{{option}}</option>
+    		</select>
+    		</div>
           </div>
-          <div class="form-group">
-            <label class="col-lg-3 control-label" translate="typeoffood">Type Of Food</label>
-            <div class="col-lg-8">
-              <input class="form-control" type="text" value="{{food}}">
-            </div>
-          </div>
+          
           <div class="form-group">
             <label class="col-md-3 control-label"></label>
-            <div class="col-md-8">
-              <input type="button" class="btn btn-primary" value="Save Changes">
+            <div class="col-lg-8">
+            	<i class="fa fa-floppy-o" aria-hidden="true"></i>
+            	
+              <button class="btn btn-primary" ng-click = "sendUserData()"  translate="save_profile"/>
               <span></span>
-              <input type="reset" class="btn btn-default" value="Cancel">
             </div>
           </div>
+
         </form>
       </div>
   </div>

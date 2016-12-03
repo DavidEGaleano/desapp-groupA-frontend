@@ -5,13 +5,13 @@ todos.controller('TodoController', function($scope,$http,$modal,ngToast,$rootSco
 	  $scope.data = [];
 	  $scope.selected = null;
 	  $scope.showTable=true;
-	  $scope.viewby = 3;
+	  $scope.viewby = 5;
 	  $scope.totalItems = $scope.data.length;
 	  $scope.currentPage = 4;
 	  $scope.itemsPerPage = $scope.viewby;
 	  $scope.maxSize = 5; //Number of pager buttons to show
 	  $scope.iduser = 1;
-	  var limit = "300";
+	  var limit = $rootScope.limitPeople;
 	  var local = 'http://localhost:8080/desapp-groupA-backend/rest';
 	  var heroku = 'https://salidasbackend.herokuapp.com/rest';
 	  
@@ -25,6 +25,10 @@ todos.controller('TodoController', function($scope,$http,$modal,ngToast,$rootSco
 					  $scope.iduser = dat.id;
 					  $rootScope.iduser = dat.id;
 					  console.log($scope.iduser);
+	    			  ngToast.create({
+	    				  className: 'info',
+	    				  content: '<a class="" translate="options"> The following searchs are based on your profile Event Preferencies </a>'
+	    				});
 				  }).error(function(err){
 					 console.log(err);
 				  });
@@ -52,7 +56,7 @@ todos.controller('TodoController', function($scope,$http,$modal,ngToast,$rootSco
 	  };
 	  
 	  $scope.getEconomic = function(){
-		  $http.get(local + '/search/economic/' +  $scope.iduser)
+		  $http.get(local + '/search/economic/' +  $rootScope.iduser)
 		  .success(function(dat){
 			  show();
 			 $scope.data = dat;
@@ -170,14 +174,14 @@ todos.controller('TodoController', function($scope,$http,$modal,ngToast,$rootSco
     		  $http.get(local + '/event/setAssisAnEvent/'+$scope.iduser+'/'+$scope.event.id)
     		  .success(function(dat){			 
     			  ngToast.create({
-    				  className: 'warning',
-    				  content: '<aclass="" translate="options"> Added to '+ $scope.event.name +' success!</a>'
+    				  className: 'success',
+    				  content: '<aclass="" translate="options"> User '+$rootScope.userName +' has registered to event '+ $scope.event.name +' !</a>'
     				});
     			 $modalInstance.close();
     		  }).error(function(err){
     			  ngToast.create({
-    				  className: 'warning',
-    				  content: '<aclass="" translate="options"> An error ocurred! cant be added to the event</a>'
+    				  className: 'danger',
+    				  content: '<aclass="" translate="options"> An error ocurred! cant be registered to that event</a>'
     				});
     			 console.log(err);
     			 $modalInstance.close();
@@ -188,14 +192,14 @@ todos.controller('TodoController', function($scope,$http,$modal,ngToast,$rootSco
     		  $http.get(local + '/event/removeAssisAnEvent/'+$scope.iduser+'/'+$scope.event.id)
     		  .success(function(dat){			 
     			  ngToast.create({
-    				  className: 'warning',
-    				  content: '<aclass="" translate="options">Removed from  '+ $scope.event.name +'  success!</a>'
+    				  className: 'success',
+    				  content: '<aclass="" translate="options"> User '+$rootScope.userName +' has unregistered from event  '+ $scope.event.name +' ! </a>'
     				});
     			 $modalInstance.close();
     		  }).error(function(err){
     			  ngToast.create({
-    				  className: 'warning',
-    				  content: '<aclass="" translate="options"> An error ocurred! cant be removed to the event</a>'
+    				  className: 'danger',
+    				  content: '<aclass="" translate="options"> An error ocurred! cant be unregistered from the event</a>'
     				});
     			 console.log(err);
     			 $modalInstance.close();
