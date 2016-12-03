@@ -21,7 +21,8 @@ angular
     'tmh.dynamicLocale',
     'angular.filter',
     'leaflet-directive',
-    'ngToast'
+    'ngToast',
+    'ui.select'
   ])
   .config(function ($routeProvider,$translateProvider,tmhDynamicLocaleProvider) {
 //	  ROUTES CONF
