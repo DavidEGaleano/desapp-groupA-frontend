@@ -14,10 +14,8 @@ todos.controller('GoogleCtrl',function($scope,$http,$rootScope,$location,ngToast
 		    var name = profile.getGivenName();
 		    var email = profile.getEmail();
 		    var token = googleUser.getAuthResponse();
-			 $rootScope.haslogged = true;
-			 $scope.haslogged = true;
 		    console.log('token: '+token.id_token);
-			  $http.get(local + '/user/setUser/'+name+'/'+email+'/'+token.id_token)
+			  $http.post(local + '/user/setUser/'+name+'/'+email+'')
 			  .success(function(dat){				  
 				  $rootScope.iduser = dat.ID;
 				  $rootScope.imageurl = profile.getImageUrl();
@@ -38,6 +36,8 @@ todos.controller('GoogleCtrl',function($scope,$http,$rootScope,$location,ngToast
 					  	  $rootScope.typeOfFood = data.typeOfFood;
 					  	  $rootScope.typeOfMusic = data.typeOfMusic;
 					  	  $rootScope.limitPeople = data.limitPeople;
+						  $rootScope.haslogged = true;
+						  $scope.haslogged = true;
 						  console.log(data);
 			    			ngToast.create({
 			    				  className: 'info',

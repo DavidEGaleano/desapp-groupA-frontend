@@ -1,6 +1,7 @@
 var app = angular.module('salidasApp');
 
 app.controller('ProfileController',function($scope,$http,$rootScope,$location,ngToast) {
+	 
 	$scope.image = $rootScope.imageurl;
 	$scope.email = $rootScope.mail;
 	$scope.username = $rootScope.userName;
