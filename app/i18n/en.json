@@ -12,7 +12,7 @@
   "event_preferences" : "Event Preferences",
   "see_map":"See Map",
   "button_cancel":"Cancel",
-  "limit_people":"Limit people",
+  "limit_people":"Minimum Capacity",
   "details":"Details",
   "limit_amount":"Limit Amount",
   "edit_profile" : "Profile",
@@ -42,7 +42,7 @@
       "description": "Here you can see all available events"
     },
     "withLimitOfPersons":{
-        "title": "With Limit Of Persons",
+        "title": "With Capacity",
       	"description": "Do you need to ensure the number of seats for your friends? Click here to find events with the same or greater quantity you are looking for. "
     },
     "friends": {

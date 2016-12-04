@@ -31,7 +31,7 @@ todos.controller('TodoController', function($scope,$http,$modal,ngToast,$rootSco
 					  console.log($scope.iduser);
 	    			  ngToast.create({
 	    				  className: 'info',
-	    				  content: '<a class="" translate="options"> The following searchs are based on your profile Event Preferencies </a>'
+	    				  content: '<div> The following searchs are based on your profile Event Preferencies </div>'
 	    				});
 				  }).error(function(err){
 					 console.log(err);
@@ -56,7 +56,7 @@ todos.controller('TodoController', function($scope,$http,$modal,ngToast,$rootSco
 			 $scope.totalItems = $scope.data.length;
 			 ngToast.create({
 				  className: 'success',
-				  content: '<a class="" translate="options"> Has been found '+ $scope.totalItems +' events !</a>'
+				  content: '<a class="" > Has been found '+ $scope.totalItems +' events !</a>'
 				});
 		  }).error(function(err){
 			 console.log(err);
@@ -90,7 +90,7 @@ todos.controller('TodoController', function($scope,$http,$modal,ngToast,$rootSco
 			 $scope.totalItems = $scope.data.length;
 			 ngToast.create({
 				  className: 'success',
-				  content: '<a class="" translate="options"> Has been found '+ $scope.totalItems +' events  with your limit of people '+$rootScope.limitPeople+' !</a>'
+				  content: '<a class="" translate="options"> Has been found '+ $scope.totalItems +' events with minimun capacity of '+$rootScope.limitPeople+' !</a>'
 				});
 		  }).error(function(err){
 			 console.log(err);

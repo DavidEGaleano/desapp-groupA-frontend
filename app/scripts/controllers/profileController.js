@@ -60,7 +60,7 @@ app.controller('ProfileController',function($scope,$http,$rootScope,$location,ng
 	  
 	  $scope.sendUserData =function(){		 
 		  
-		  $http.post( local + '/user/updateUser/'+$rootScope.iduser+'/'+$scope.username+'/'+$scope.email+'' )
+		  $http.post( local + '/user/updateUser/'+$rootScope.iduser+'/'+$scope.username+'' )
 		  .success(function(data){
 			  		$rootScope.userName = $scope.username;
 			  		$rootScope.email = $scope.mail;

@@ -13,8 +13,8 @@
   "event_preferences" : "Preferencia de Eventos",
   "button_cancel" : "Cancelar",
   "details":"Detalles",
-  "limit_people":"Cantidad de Personas",
-  "limit_amount":"Saldo limite",
+  "limit_people":"Capacidad Minima",
+  "limit_amount":"Monto Limite",
   "personal_info":"Informacion Personal",
   "edit_profile" : "Perfil",
   "addedsuccess": "Has sido agregado al Evento",
@@ -42,7 +42,7 @@
       "description": "Aqui podras ver todos los eventos disponibles"
     },
     "withLimitOfPersons":{
-        "title": "Por Cantidad de Personas",
+        "title": "Por Capacidad",
       	"description": "Necesitas asegurar que la cantidad de cupos para tus amigos? has click aqui para encontrar los eventos con la cantidad igual o mayor al que buscas."
     },
     "friends": {
