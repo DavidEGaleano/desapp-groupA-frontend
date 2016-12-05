@@ -34,6 +34,10 @@ module.exports = function(config) {
       'bower_components/angular-translate-loader-static-files/angular-translate-loader-static-files.js',
       'bower_components/angular-dynamic-locale/src/tmhDynamicLocale.js',
       'bower_components/angular-filter/dist/angular-filter.js',
+      'bower_components/leaflet/dist/leaflet-src.js',
+      'bower_components/angular-leaflet-directive/dist/angular-leaflet-directive.js',
+      'bower_components/ngToast/dist/ngToast.js',
+      'bower_components/angular-ui-select/dist/select.js',
       'bower_components/angular-mocks/angular-mocks.js',
       // endbower
       'app/scripts/**/*.js',

@@ -24,11 +24,8 @@ todos.controller('TodoController', function($scope,$http,$modal,ngToast,$rootSco
 		  var email = profile.getEmail();
 		  $http.get(local + '/user/getUserWithEmail/'+email)
 				  .success(function(dat){
-					  console.log("setId");
-					  console.log(dat.id);
 					  $scope.iduser = dat.id;
 					  $rootScope.iduser = dat.id;
-					  console.log($scope.iduser);
 	    			  ngToast.create({
 	    				  className: 'info',
 	    				  content: '<div> The following searchs are based on your profile Event Preferencies </div>'
@@ -101,10 +98,6 @@ todos.controller('TodoController', function($scope,$http,$modal,ngToast,$rootSco
 	    $scope.currentPage = pageNo;
 	  };
 
-	  $scope.pageChanged = function() {
-	    console.log('Page changed to: ' + $scope.currentPage);
-	  };
-
 	$scope.setItemsPerPage = function(num) {
 	  $scope.itemsPerPage = num;
 	  $scope.currentPage = 1; //reset to first paghe
@@ -124,11 +117,9 @@ todos.controller('TodoController', function($scope,$http,$modal,ngToast,$rootSco
 	 $scope.name = 'theNameHasBeenPassed';
 	 
  	 $scope.getEventForModal = function getevent (htmlname,id){
- 		 console.log("modal exec");
  		  $http.get(local + '/event/getEvent/'+id)
  		  .success(function(dat){
  			 $scope.selected = dat;
- 			 console.log( $scope.selected);
  			 showModal(htmlname)
  		  }).error(function(err){
  			 console.log(err);

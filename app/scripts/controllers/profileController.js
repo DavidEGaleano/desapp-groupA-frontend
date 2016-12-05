@@ -46,7 +46,6 @@ app.controller('ProfileController',function($scope,$http,$rootScope,$location,ng
 	  var heroku = 'https://salidasbackend.herokuapp.com/rest';
 	  
 	  $scope.getUser = function(){
-		  console.log("getUser");
 		    $scope.limitamount =  $rootScope.limitAmount;
 			$scope.image = $rootScope.imageurl;
 			$scope.email = $rootScope.mail;
@@ -63,19 +62,14 @@ app.controller('ProfileController',function($scope,$http,$rootScope,$location,ng
 		  $http.post( local + '/user/updateUser/'+$rootScope.iduser+'/'+$scope.username+'' )
 		  .success(function(data){
 			  		$rootScope.userName = $scope.username;
-			  		$rootScope.email = $scope.mail;
-			  		console.log($rootScope.username);
-			  		console.log($rootScope.email);
-			  		console.log(data);
+			  		$rootScope.email = $scope.mail;;
 			  		 $http.post( local + '/profile/update/'+$scope.profileId+'/'+$scope.limitamount+'/'+$scope.music+'/'+$scope.food+'/'+ $scope.film +'/'+ $scope.limitpeople  )
 					  .success(function(data){
 						  		$rootScope.limitAmount = $scope.limitamount;
 								$rootScope.typeOfMusic = $scope.music;
 								$rootScope.typeOfFood = $scope.food;
 								$rootScope.typeOfFilm = $scope.film;
-								$rootScope.limitPeople = $scope.limitpeople;
-						  		console.log($rootScope.limitPeople);
-						  		console.log(data);
+								$rootScope.limitPeople = $scope.limitpeople;						  		
 				    			ngToast.create({
 				    				  className: 'success',
 				    				  content: '<aclass="" translate="options"> Profile updated!</a>'
