@@ -1,0 +1,88 @@
+{
+  "title": "Where we go?",
+  "profile": "Profile",
+  "friends": "Friends",
+  "username": "User Name",
+  "main": "Home",
+  "logout": "Logout",
+  "google_sign_in": "Sign in with Google",
+  "language": "Language",
+  "options": "Options",
+  "ill_go": "I'll Go",
+  "event_preferences" : "Event Preferences",
+  "see_map":"See Map",
+  "button_cancel":"Cancel",
+  "limit_people":"Minimum Capacity",
+  "details":"Details",
+  "limit_amount":"Limit Amount",
+  "edit_profile" : "Profile",
+  "personal_info": "Personal Info",
+  "addedsuccess": "You have added to that Event ",
+  "addedFail":" An error occured, you can't be added to that Event ",
+  "ill_cancel":"i'll not Go",
+  "slogan":"",
+  "optView":"View records at a time",
+  "tcapacity":"Capacity",
+  "taddress":"Address",
+  "tprice":"Price",
+  "tname":"Name",
+  "select_search_mode":"Please, select a Search Mode",
+  "save_profile" : "Save Profile",
+  "typeoffood":"Food Preferencie",
+  "typeofmusic":"Music Preferencie",
+  "typeoffilm":"Film Preferencie",
+  "where_we_go":"WHERE WE GO?",
+  "search_strategies": {
+    "inexpensive": {
+      "title": "Cheaper",
+      "description": "Find free or cheap options to go out and have fun, even though you don´t have much money."
+    },
+    "all_events": {
+      "title": "All Events",
+      "description": "Here you can see all available events"
+    },
+    "withLimitOfPersons":{
+        "title": "With Capacity",
+      	"description": "Do you need to ensure the number of seats for your friends? Click here to find events with the same or greater quantity you are looking for. "
+    },
+    "friends": {
+      "title": "With Friends",
+      "description": "Planning the weekend with friends? Click here to find the best options."
+    },
+    "couples": {
+      "title": "Better Half",
+      "description": "It is always a good time to enjoy an outing with your couple. Find the ideal place."
+    },
+    "sat_night_fever": {
+      "title": "Saturday Night Fever",
+      "description": "If the schedule is not a problem for you, here we give you options from dusk to dawn."
+    },
+    "surprise_me": {
+      "title": "Surprise Me!",
+      "description": "It's time for you to do something different, let yourself be surprised with our most recommended options."
+    }
+  },
+  "dev_app": "Applications Development",
+  "and": "and",
+  "name": "Name",
+  "surname": "Surname",
+  "email": "Email",
+  "inexpensive_limit": "Cheaper outing limit",
+  "tag_categories": {
+    "music": "Music",
+    "movies": "Movies",
+    "gastronomy": "Gastronomy",
+    "transport": "Transport"
+  },
+  "friends_search": "Friends Search",
+  "my_friends": "My Friends",
+  "assistants": "How many assistants?",
+  "search": "Search Events",
+  "details": "Details",
+  "events": "Sugested Events",
+  "places": "Sugested Places",
+  "add_friend_ok": "Friend added successfully",
+  "remove_friend_ok": "Friend removed successfully",
+  "footer": "Application Development - 2016",
+  "signature" : "David Galeano, Diego Caminos"
+}

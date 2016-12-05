@@ -1,0 +1,87 @@
+{
+  "title": "¿A donde vamos?",
+  "profile": "Perfil",
+  "friends": "Amigos",
+  "username": "Nombre de Usuario",
+  "main": "Principal",
+  "logout": "Salir",
+  "google_sign_in": "Acceder con Google",
+  "language": "Idioma",
+  "options": "Opciones",
+  "ill_go": "Asisitire",
+  "see_map":"Ver Mapa",
+  "event_preferences" : "Preferencia de Eventos",
+  "button_cancel" : "Cancelar",
+  "details":"Detalles",
+  "limit_people":"Capacidad Minima",
+  "limit_amount":"Monto Limite",
+  "personal_info":"Informacion Personal",
+  "edit_profile" : "Perfil",
+  "addedsuccess": "Has sido agregado al Evento",
+  "addedFail":" Ocurrio un error, no se logro agregarte al Evento",
+  "ill_cancel":"No Asisitire",
+  "tcapacity":"Capacidad",
+  "optView":"Ver resultados a la vez",
+  "taddress":"Direccion",
+  "tprice":"Costo",
+  "tname":"Nombre",
+  "where_we_go":"A DONDE VAMOS?",
+  "slogan":"",
+  "select_search_mode":"Por favor Seleccione un tipo de busqueda",
+  "save_profile" : "Guardar Perfil",
+  "typeoffood":"Comida Preferida",
+  "typeofmusic":"Musica Preferida",
+  "typeoffilm":"Pelicula Preferida",
+  "search_strategies": {
+    "inexpensive": {
+      "title": "Gasolera",
+      "description": "Encontrá opciones gratuitas o baratas para salir y pasarla bien aún cuando estés corto de plata."
+    },
+    "all_events": {
+      "title": "Todos Los Eventos",
+      "description": "Aqui podras ver todos los eventos disponibles"
+    },
+    "withLimitOfPersons":{
+        "title": "Por Capacidad",
+      	"description": "Necesitas asegurar que la cantidad de cupos para tus amigos? has click aqui para encontrar los eventos con la cantidad igual o mayor al que buscas."
+    },
+    "friends": {
+      "title": "Con Amigos",
+      "description": "¿Planificando el fin de semana con amigos? hacé click acá para encontrar las mejores opciones."
+    },
+    "couples": {
+      "title": "Media Naranja",
+      "description": "Siempre es un buen momento para disfrutar de una salida con tu pareja. Encontrá el lugar ideal."
+    },
+    "sat_night_fever": {
+      "title": "Saturday Night Fever",
+      "description": "Si para vos el horario no es un problema, acá te damos opciones para una salida de sol a sol."
+    },
+    "surprise_me": {
+      "title": "Sorprendeme!",
+      "description": "Es hora de que hagas algo distinto, dejate sorprender con nuestras opciones más recomendadas."
+    }
+  },
+  "dev_app": "Desarrollo de Aplicaciones",
+  "and": "y",
+  "name": "Nombre",
+  "surname": "Apellido",
+  "email": "Email",
+  "inexpensive_limit": "Limite para salidas baratas",
+  "tag_categories": {
+    "music": "Música",
+    "movies": "Peliculas",
+    "gastronomy": "Gastronomía",
+    "transport": "Transporte"
+  },
+  "friends_search": "Búsqueda de Amigos",
+  "my_friends": "Mis amigos",
+  "assistants": "¿Cuántos asistirán?",
+  "search": "Buscar Eventos",
+  "details": "Detalle",
+  "places": "Lugares Sugeridos",
+  "add_friend_ok": "Amigo agregado correctamente",
+  "remove_friend_ok": "Amigo eliminado correctamente",
+  "footer": "Desarrollo de Aplicaciónes - 2016",
+  "signature" : "David Galeano, Diego Caminos"
+}
