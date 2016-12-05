@@ -16,8 +16,8 @@ todos.controller('TodoController', function($scope,$http,$modal,ngToast,$rootSco
 	  $scope.maxSize = 5; //Number of pager buttons to show
 	  $scope.iduser = 1;
 	  var limit = $rootScope.limitPeople;
-	  var local = 'http://localhost:8080/desapp-groupA-backend/rest';
-	  var heroku = 'https://salidasbackend.herokuapp.com/rest';
+	  var local = 'https://salidasbackend.herokuapp.com/rest' ;
+	  var heroku = 'http://localhost:8080/desapp-groupA-backend/rest';
 	  
 	  $scope.setId = function(){
 		  var profile = $rootScope.profile;

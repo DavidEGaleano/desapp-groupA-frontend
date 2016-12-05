@@ -42,8 +42,8 @@ app.controller('ProfileController',function($scope,$http,$rootScope,$location,ng
 	    } 
 	});
 
-	  var local = 'http://localhost:8080/desapp-groupA-backend/rest';
-	  var heroku = 'https://salidasbackend.herokuapp.com/rest';
+	  var local = 'https://salidasbackend.herokuapp.com/rest' ;
+	  var heroku = 'http://localhost:8080/desapp-groupA-backend/rest';
 	  
 	  $scope.getUser = function(){
 		    $scope.limitamount =  $rootScope.limitAmount;

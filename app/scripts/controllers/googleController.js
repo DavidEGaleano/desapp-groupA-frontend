@@ -2,8 +2,8 @@
 var todos = angular.module('salidasApp');
 
 todos.controller('GoogleCtrl',function($scope,$http,$rootScope,$location,ngToast) {
-	 var local = 'http://localhost:8080/desapp-groupA-backend/rest';
-	 var heroku = 'https://salidasbackend.herokuapp.com/rest';
+	 var local = 'https://salidasbackend.herokuapp.com/rest' ;
+	 var heroku = 'http://localhost:8080/desapp-groupA-backend/rest';
 	 $rootScope.haslogged = false;
 	 $scope.haslogged = false;
 	 
